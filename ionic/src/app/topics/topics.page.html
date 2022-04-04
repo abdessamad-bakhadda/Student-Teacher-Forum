@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Forum : topics</ion-title>
+
+    <!-- creation d'un bouton pour ouvrir Menu -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openMenu($event)">
+        <ion-icon slot="icon-only"
+                  ios="ellipsis-horizontal"
+                  md="ellipsis-vertical">
+
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- creation d'un back bouton pour revenir à la page precedente -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let elt of tab_topics ">
+      <ion-anchor routerLink="/posts/{{elt.id}}}"> <!-- /topics not topics-->
+        <ion-label>
+          <h4> {{elt.Sujet}} </h4>
+          <pre><small> {{elt.date_dernier_message}}           {{elt.nb_posts}} posts</small></pre>
+        </ion-label>
+      </ion-anchor>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
