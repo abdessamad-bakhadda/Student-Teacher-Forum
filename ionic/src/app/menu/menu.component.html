@@ -1,0 +1,11 @@
+<ion-content>
+  <ion-list>
+    <ion-radio-group value="{{critere_selected}}" >
+      <ion-item  *ngFor="let elt of critere_tri" (click)="closePopover(elt)">
+        <ion-radio value="packard" value="{{elt}}" >   </ion-radio>
+        <ion-label><pre> Tri par {{elt}}  </pre></ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+
