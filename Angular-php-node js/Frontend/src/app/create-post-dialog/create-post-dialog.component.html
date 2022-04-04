@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Saisissez un nouveau post</p>
+  <ckeditor [editor]="Editor" [(ngModel)]="data.message"></ckeditor>
+  <p>{{message_erreur}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fermer</button>
+  <button mat-button (click)="onClick()">Créer le post</button>
+</div>
