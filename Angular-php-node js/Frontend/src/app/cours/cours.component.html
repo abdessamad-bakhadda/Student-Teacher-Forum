@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="mat-elevation-z8">
+<table mat-table [dataSource] = "dataSource" matSort class="mat-elevation-z8">
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- id Column
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container> -->
+
+  <!-- nom_cours Column -->
+    <ng-container matColumnDef="nom_cours"> <!-- le nom li hna hwa li f base de donnée o /// -->
+
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du cours </th> <!-- le nom li hna hwa li kit2afficha -->
+      <!--href oblige à retélécharger toute votre application.
+      En Angular, il faut utiliser routerLink à la place de href ,
+      comme vu en cours, car seule la vue (la page) sera modifiée et votre application ne sera pas retéléchargée du tout. -->
+      <!--etape 34
+       ici  doit-on faire (click)="send_id({{element.id}})" ?
+       la réponse est non
+       car this.route.snapshot.paramMap.get('id'); renverra une chaine de caratere contenant id
+       this.route.snapshot.paramMap.get('id'); effectué dans le ngOnInit de TopicsComponent-->
+      <td mat-cell *matCellDef="let element" >
+        <a routerLink="/topics/{{element.id}}"  > <!-- on a oublié / avant d'ecrire topics/{{element.id}} -->
+          {{element.nom_cours}}
+        </a>
+      </td><!-- /// hwa  li hna o hwa i f Cours o hwa li f base de données -->
+
+    </ng-container>
+
+
+    <!-- nb_tpoics Column -->
+
+    <ng-container matColumnDef="nb_topics">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > #Topics </th>
+      <td mat-cell *matCellDef="let element"> {{element.nb_topics}} </td>
+    </ng-container>
+
+
+    <!-- nb_posts Column -->
+    <ng-container matColumnDef="nb_posts"> <!-- le nom li hna hwa li f base de donnée o ///-->
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> #posts </th> <!-- le nom li hna hwa li kit2afficha -->
+      <td mat-cell *matCellDef="let element"> {{element.nb_posts}} </td> <!-- /// hwa  li hna o hwa i f Cours o hwa li f base de données -->
+    </ng-container>
+
+    <!-- date_dernier_message Column -->
+    <ng-container matColumnDef="date_dernier_message">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Dernier message </th>
+      <td mat-cell *matCellDef="let element"> {{element.date_dernier_message}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr style="transform: rotate(0) ;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+

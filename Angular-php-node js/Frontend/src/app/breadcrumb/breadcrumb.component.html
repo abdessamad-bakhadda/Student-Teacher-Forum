@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" >
+    <!--si le champ route de la variable path n'est pas vide, c’est le lien <a> qui sera inclus dans la page web, sinon ce sera le <span>.-->
+    <li *ngFor="let elt of paths" class="breadcrumb-item"> <!-- il faut mettre ici *ngFor="let elt of paths"  pour ne pas auter la ligne et class="breadcrumb-item" pour le slash -->
+      <a *ngIf="elt.route.length != 0" [routerLink]="elt.route">{{elt.nom}}</a>
+      <span *ngIf="elt.route.length == 0">{{elt.nom}}</span>
+    </li>
+
+  </ol>
+</nav>
+
+
+
+
