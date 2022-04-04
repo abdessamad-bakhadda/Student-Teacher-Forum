@@ -1,0 +1,4 @@
+export const environment = {
+  production: true ,
+  debut_url : "http://127.0.0.1:3000/" ,
+};
