@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Forum Polyetch</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h5>Veuillez vous authentifier :</h5>
+  <br/>
+
+  <ion-list>
+    <ion-item>
+      <!-- ici y'a two-way-binding , html <-> ts-->
+      <ion-input placeholder="Entrez votre nom" type = "login"  [(ngModel)]="log" width = "50" height="20" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+    <!--ici y'a two-way-binding , html <-> ts-->
+      <ion-input placeholder="Entrez votre mot de passe :" type = "password" [(ngModel)]="pwd" width = "50" height="20" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- ici y'a event-binding , html-> ts-->
+  <ion-button type = "submit" name ="submit"  (click)="aff_message_err_19()" color="primary">Se connecter</ion-button>
+
+
+
+</ion-content>
